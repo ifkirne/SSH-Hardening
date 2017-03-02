@@ -171,7 +171,7 @@ def add_sudo_user(username, password):
     else:
         append('/tmp/sudoers.bk', "%s ALL=(ALL) ALL" % username, use_sudo=True)
 
-    # Set ACLs for the backup user on /pdc and/or /backups
+    # Set ACLs for the backup user on /backups
     if username == 'backup':
         sudo('setfacl -R -m d:u:backup:rwx /backups')
         sudo('setfacl -R -m u:backup:rwx /backups')
